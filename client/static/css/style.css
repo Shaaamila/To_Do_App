@@ -1,12 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
-@import url("https://fonts.googleapis.com/css?family=Lato");
+
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url("https://fonts.googleapis.com/css?family=Oregano");
-@import url("https://fonts.googleapis.com/css?family=Indie+Flower|Source+Sans+Pro");
-@import url("https://fonts.googleapis.com/css?family=Acme");
-@import url("https://fonts.googleapis.com/css?family=Architects+Daughter");
-@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans");
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url('https://fonts.googleapis.com/css?family=Poppins|Sniglet|Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu');
 /*Mixin*/
 /*$skills-color: */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -18,8 +14,8 @@ html, body {
   margin: 0;
   padding: 0;
   /*	font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  font-family: "Roboto", sans-serif;
-  font-size: 1em; }
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3em; }
 
 body {
   background: white;
@@ -34,7 +30,16 @@ body {
   background: url("/content/img/bg5.jpg") center center no-repeat fixed;
   background-size: cover;
   background-size: 100% 100%;
-  text-align: center; }
+  text-align: center; 
+
+  }
+  .title {
+    font-family: 'Sniglet', cursive;
+    font-size: 2.1em;
+  }
+  #bar {
+    width: 60%;
+  }
 
  /*   img {
     	max-width:100%;

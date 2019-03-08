@@ -1,22 +1,16 @@
 <div ng-controller="customTasksController">
 
-		<h3>To Do List</h3>
+		<h3 class="title">To Do List</h3>
 		<form>
-			<div class="form-group">
-				<label>Add task:</label>
-				<input type="text" class="form-control" ng-model="newTask.to_do">
-			</div>
-	<!-- 		<div class="form-group">
-				<label>Last Name:</label>
-				<input type="text" class="form-control" ng-model="newUser.last_name">
-			</div> -->
-	<!-- 		<div class="form-group">
-				<label>Favorite Language:</label>
-				<input type="text" class="form-control" ng-model="newUser.lang">
-			</div> -->
-			<div class="form-group">
+			<label>Add a task:</label>
+			<div class="form-inline">
+				<!-- <label>Add a task:</label> -->
+				<input type="text" class="form-control" id="bar" ng-model="newTask.to_do">
 				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
 			</div>
+<!-- 			<div class="form-group">
+				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
+			</div> -->
 		</form>
 
 	<table class="table table-hover">
