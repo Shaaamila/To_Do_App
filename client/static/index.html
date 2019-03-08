@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Do App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    var myApp = angular.module('myApp', ['ngRoute']);
+    myApp.config(function($routeProvider) {
+      $routeProvider
+      .when('/', {
+        templateUrl: 'partials/custom.html'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+    });
+    // start of name change
+    myApp.factory('taskFactory', function() {
+      var factory = {};
+      var tasks = [
+        // { first_name: "Yukihiro", last_name: "Matsumoto", lang: "Ruby" },
+        // { first_name: "Ryan", last_name: "Dahl", lang: "JavaScript" },
+        // { first_name: "Brendan", last_name: "Eich", lang: "JavaScript" },
+      ];
+      factory.getTasks = function(callback) {
+        callback(tasks);
+      };
+      factory.addTask = function(task) {
+        tasks.push(task);
+      };
+      factory.deleteTask = function($index) {
+        tasks.splice($index, 1);
+      };
+      return factory;
+    });
+    myApp.controller('customTasksController', function($scope, taskFactory) {
+      $scope.tasks = [];
+      taskFactory.getTasks(function(data) {
+        $scope.tasks = data;
+      });
+      $scope.addTask = function() {
+        taskFactory.addTask($scope.newTask);
+        $scope.newTask = {};
+      };
+      $scope.deleteTask = function($index) {
+        taskFactory.deleteTask($index);
+      };
+    });
+    myApp.controller('listsController', function($scope, taskFactory) {
+      $scope.tasks = [];
+      taskFactory.getTasks(function(data) {
+        $scope.tasks = data;
+      });
+    });
+  </script>
+</head>
+<body ng-app="myApp">
+  <div class="container">
+    <div class="row">
+<!--       <div class="col-xs-12">
+        <a href="#/">Customize Users</a> | <a href="#/list">User List</a>
+      </div> -->
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div ng-view="">
+          f
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

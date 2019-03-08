@@ -1,0 +1,44 @@
+<div ng-controller="customTasksController">
+
+		<h3>To Do List</h3>
+		<form>
+			<div class="form-group">
+				<label>Add task:</label>
+				<input type="text" class="form-control" ng-model="newTask.to_do">
+			</div>
+	<!-- 		<div class="form-group">
+				<label>Last Name:</label>
+				<input type="text" class="form-control" ng-model="newUser.last_name">
+			</div> -->
+	<!-- 		<div class="form-group">
+				<label>Favorite Language:</label>
+				<input type="text" class="form-control" ng-model="newUser.lang">
+			</div> -->
+			<div class="form-group">
+				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
+			</div>
+		</form>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Tasks</th>
+<!-- 				<th>Last Name</th>
+				<th>Favorite Language</th> -->
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="task in tasks">
+				<td ng-bind="task.to_do"></td> 
+			<!-- 	<td ng-bind="user.last_name"></td>
+				<td>{{ user.lang }}</td> -->
+				<td>
+					<form>
+						<button class="btn btn-danger" ng-click="deleteTask($index)">Remove Task</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
