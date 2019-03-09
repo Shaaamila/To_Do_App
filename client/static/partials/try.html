@@ -12,6 +12,16 @@
 				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
 			</div> -->
 		</form>
+		<ol>
+			<li ng-repeat="task in tasks">
+
+				<label ng-bind="task.to_do"></label>
+				<button class="btn btn-info" ng-click="doneTask($index)">Done!</button>
+				<button class="btn btn-info" ng-click="deleteTask($index)">Remove</button>
+
+
+			</li>	
+		</ol>
 
 	<table class="table table-hover" id="list">
 		<thead>
@@ -24,9 +34,9 @@
 		</thead>
 		<tbody>
 			
-			<tr ng-repeat="task in tasks">
+			<ol><li><tr ng-repeat="task in tasks"></li></ol>
 				<!-- <td><input type="checkbox"></td> -->
-				<td ng-bind="task.to_do" id="roman"></td> 
+				<td ng-bind="task.to_do"></td> 
 			<!-- 	<td ng-bind="user.last_name"></td>
 				<td>{{ user.lang }}</td> -->
 				<td>
