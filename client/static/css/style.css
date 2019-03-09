@@ -40,6 +40,17 @@ body {
   #bar {
     width: 60%;
   }
+  #list {
+    margin-top: 5%;
+    text-align: left;
+  }
+  #list th {
+    font-size: .9em;
+  }
+
+  #list td {
+    font-size: .7em;
+  }
 
  /*   img {
     	max-width:100%;

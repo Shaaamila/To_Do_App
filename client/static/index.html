@@ -37,6 +37,22 @@
       factory.deleteTask = function($index) {
         tasks.splice($index, 1);
       };
+      var dones = [
+      { to_do: "dusting" },
+      { to_do: "blushing" },
+      ];
+
+      // factory.doneTask = function(finished) {
+      //   dones.push(finished);
+      // }
+      factory.doneTask = function($index) {
+        finished = tasks.splice($index, 1)
+        dones.push(finished);
+      }
+      factory.gottenTasks = function(callback) {
+        callback(dones);
+      };
+
       return factory;
     });
     myApp.controller('customTasksController', function($scope, taskFactory) {
@@ -51,12 +67,26 @@
       $scope.deleteTask = function($index) {
         taskFactory.deleteTask($index);
       };
+      $scope.doneTask = function($index) {
+        taskFactory.doneTask($index);
+        // var finished = tasks.splice($index, 1)
+        // taskFactory.doneTask($scope.finished);
+      };
+
     });
+    // myApp.controller('listsController', function($scope, taskFactory) {
+    //   $scope.tasks = [];
+    //   taskFactory.getTasks(function(data) {
+    //     $scope.tasks = data;
+    //   });
+  
     myApp.controller('listsController', function($scope, taskFactory) {
-      $scope.tasks = [];
-      taskFactory.getTasks(function(data) {
-        $scope.tasks = data;
+      $scope.dones = [];
+      taskFactory.gottenTasks(function(data) {
+        $scope.dones = data;
+        console.log("bhi");
       });
+
     });
   </script>
 </head>

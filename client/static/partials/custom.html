@@ -5,7 +5,7 @@
 			<label>Add a task:</label>
 			<div class="form-inline">
 				<!-- <label>Add a task:</label> -->
-				<input type="text" class="form-control" id="bar" ng-model="newTask.to_do">
+				<input type="text" class="form-control" id="bar" placeholder="Add an item" ng-model="newTask.to_do">
 				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
 			</div>
 <!-- 			<div class="form-group">
@@ -13,7 +13,7 @@
 			</div> -->
 		</form>
 
-	<table class="table table-hover">
+	<table class="table table-hover" id="list">
 		<thead>
 			<tr>
 				<th>Tasks</th>
@@ -24,15 +24,34 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="task in tasks">
+				<td><input type="checkbox"></td>
 				<td ng-bind="task.to_do"></td> 
 			<!-- 	<td ng-bind="user.last_name"></td>
 				<td>{{ user.lang }}</td> -->
 				<td>
 					<form>
-						<button class="btn btn-danger" ng-click="deleteTask($index)">Remove Task</button>
+						<button class="btn btn-info" ng-click="doneTask($index)">Done!</button>
+			<!-- 			<button class="btn btn-info" ng-click="editTask($index)">Edit Task</button> -->
+						<button class="btn btn-info" ng-click="deleteTask($index)">Remove</button>
+
 					</form>
 				</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+
+<div ng-controller="listsController">
+  <table class="table table-hover" id="list">
+    <thead>
+     <tr>
+        <th>Completed!</th>
+     </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="done in dones">
+		<td ng-bind="done.to_do"></td> 
+      </tr>
+    </tbody>
+  </table>
 </div>
