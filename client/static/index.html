@@ -24,6 +24,7 @@
     myApp.factory('taskFactory', function() {
       var factory = {};
       var tasks = [
+      {to_do: "nice job"},
         // { first_name: "Yukihiro", last_name: "Matsumoto", lang: "Ruby" },
         // { first_name: "Ryan", last_name: "Dahl", lang: "JavaScript" },
         // { first_name: "Brendan", last_name: "Eich", lang: "JavaScript" },
@@ -42,12 +43,11 @@
       { to_do: "blushing" },
       ];
 
-      // factory.doneTask = function(finished) {
-      //   dones.push(finished);
-      // }
       factory.doneTask = function($index) {
-        finished = tasks.splice($index, 1)
-        dones.push(finished);
+        to_do = tasks.splice($index, 1);
+        //splice returns an array with removed items in it
+        item = to_do[0];
+        dones.push(item);
       }
       factory.gottenTasks = function(callback) {
         callback(dones);
@@ -59,6 +59,7 @@
       $scope.tasks = [];
       taskFactory.getTasks(function(data) {
         $scope.tasks = data;
+        console.log(data);
       });
       $scope.addTask = function() {
         taskFactory.addTask($scope.newTask);
@@ -69,8 +70,6 @@
       };
       $scope.doneTask = function($index) {
         taskFactory.doneTask($index);
-        // var finished = tasks.splice($index, 1)
-        // taskFactory.doneTask($scope.finished);
       };
 
     });
@@ -84,7 +83,7 @@
       $scope.dones = [];
       taskFactory.gottenTasks(function(data) {
         $scope.dones = data;
-        console.log("bhi");
+        console.log(data);
       });
 
     });
