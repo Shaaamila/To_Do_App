@@ -2,7 +2,7 @@ var express = require("express");
 var path = require('path');
 var app = express();
 
-app.use(express.static(path.join(__dirname, './client/static')));
+app.use(express.static(path.join(__dirname, './client')));
 
 var routeSetter = require('./server/config/routes.js');
 routeSetter(app);
