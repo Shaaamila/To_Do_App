@@ -4,40 +4,29 @@
 		<form>
 			<label>Add a task:</label>
 			<div class="form-inline">
-				<!-- <label>Add a task:</label> -->
 				<input type="text" class="form-control" id="bar" placeholder="Add an item" ng-model="newTask.to_do">
 				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
 			</div>
-<!-- 			<div class="form-group">
-				<button class="btn btn-default" ng-click="addTask()">Add Task</button>
-			</div> -->
 		</form>
 
-	<table class="table table-hover" id="list">
+	<table class="table table-responsive" id="list">
 		<thead>
 			<tr>
-				<th>Tasks</th>
-<!-- 				<th>Last Name</th>
-				<th>Favorite Language</th> -->
-				<!-- <th>Actions</th> -->
+				<th style="width:65%">Tasks</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			
-			<tr ng-repeat="task in tasks">
-				<!-- <td><input type="checkbox"></td> -->
-				<td ng-bind="task.to_do" id="roman"></td> 
-			<!-- 	<td ng-bind="user.last_name"></td>
-				<td>{{ user.lang }}</td> -->
-				<td>
+			<tr ng-repeat="task in tasks" id="hover">
+				<td ng-bind="task.to_do" style="overflow-wrap: normal" class="grow-shadow"></td> 
+				<td style="text-align:right">
 					<form>
 						<button class="btn btn-info" ng-click="doneTask($index)">Done!</button>
-			<!-- 			<button class="btn btn-info" ng-click="editTask($index)">Edit Task</button> -->
 						<button class="btn btn-info" ng-click="deleteTask($index)">Remove</button>
-
 					</form>
 				</td>
 			</tr>
+<!-- overflow wrap is text wrap in css -->			
 
 			
 		</tbody>
@@ -45,7 +34,7 @@
 </div>
 
 <div ng-controller="listsController">
-  <table class="table table-hover" id="list">
+  <table class="table table-responsive" id="list">
     <thead>
      <tr>
         <th>Completed!</th>

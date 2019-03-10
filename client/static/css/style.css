@@ -54,15 +54,21 @@ body {
   #over {
     text-decoration: line-through;
   }
+/*  td:hover {
+          opacity: .5;
+        }*/
+#hover:hover {
+    background-color: #E6E6FA;
+  }
 /*adding list number to tasks*/
-#roman {
-
+/*#roman {
     display:list-item;
-    /*list-style:disc inside;*/
+    list-style:disc inside;
     list-style-type: lower-roman;
     padding:0 0% 0 10%;
     margin:0;
-}
+}*/
+
 /*  table {
     counter-reset: rowNumber;
 }
@@ -90,25 +96,11 @@ table tr td:first-child::before {
   float:left;
 }*/
 
- /*   img {
-    	max-width:100%;
-
-    }*/
-.title-heading {
-  font-family: 'Oregano', cursive;
-  /*font-size: em(300);*/
-  font-size: 800%;
-  width: 80%;
-  margin: 15% auto 5% auto;
-  font-weight: 300;
-  opacity: 0.8; }
-
-.intro-heading {
-  /*font-size: em(30);*/
+/*.intro-heading {
   font-size: 300%;
   width: 70%;
   margin: 0 auto;
   opacity: 0.8;
-  font-weight: 400; }
+  font-weight: 400; }*/
 
 /*# sourceMappingURL=style.css.map */
